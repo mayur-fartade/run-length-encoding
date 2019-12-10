@@ -2,7 +2,6 @@
 def encode(text):
     new =""
     for i in range(0,len(text) ):
-        
         if i!=0 and text[i] == text[i-1]:
             continue
         count = 1
