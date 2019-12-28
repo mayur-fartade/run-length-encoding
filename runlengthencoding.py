@@ -1,19 +1,17 @@
 
 def encode(text):
-    new =""
-    for i in range(0,len(text) ):
-        if i!=0 and text[i] == text[i-1]:
-            continue
-        count = 1
-        for j in range(i+1, len(text)):
-            if text[i] != text[j]:
-                break
-            else:
-                count += 1
-                
-        new += str(count) + text[i]
-    return new
-
+    new = []
+    i = 1
+    count = 1
+    while i < len(text):
+        if text[i] == text[i-1]:
+            count += 1
+        else:
+            new.append(str(count)+text[i-1])
+            count = 1
+        i += 1
+    new.append(str(count)+text[i-1])
+    return ''.join(new)
+    
 print("Encoded text is ", encode("CCCCCABCCCAAACC") )
 
-#Try with different values 
